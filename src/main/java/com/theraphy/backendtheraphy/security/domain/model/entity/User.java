@@ -1,5 +1,6 @@
 package com.theraphy.backendtheraphy.security.domain.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import lombok.*;
 
@@ -8,6 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +20,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 public class User extends AuditModel {
 
     @Id
@@ -33,8 +36,8 @@ public class User extends AuditModel {
     @NotNull
     @NotBlank
     @Size(max = 50)
-    @Column(unique = true)
     @Email
+    @Column(unique = true)
     private String email;
 
     @NotBlank
@@ -46,7 +49,6 @@ public class User extends AuditModel {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
