@@ -1,6 +1,6 @@
 package com.theraphy.backendtheraphy.appointments.api.rest;
 
-import com.theraphy.backendtheraphy.appointments.domain.service.AppointmentService;
+import com.theraphy.backendtheraphy.appointments.domain.persistence.service.AppointmentService;
 import com.theraphy.backendtheraphy.appointments.mapping.AppointmentMapper;
 import com.theraphy.backendtheraphy.appointments.resource.AppointmentResource;
 import com.theraphy.backendtheraphy.appointments.resource.CreateAppointmentResource;
