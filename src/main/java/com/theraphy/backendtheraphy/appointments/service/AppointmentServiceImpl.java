@@ -2,7 +2,7 @@ package com.theraphy.backendtheraphy.appointments.service;
 
 import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
 import com.theraphy.backendtheraphy.appointments.domain.persistence.AppointmentRepository;
-import com.theraphy.backendtheraphy.appointments.domain.service.AppointmentService;
+import com.theraphy.backendtheraphy.appointments.domain.persistence.service.AppointmentService;
 import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
 import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;

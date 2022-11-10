@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.appointments.domain.service;
+package com.theraphy.backendtheraphy.appointments.domain.persistence.service;
 
 import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
 import org.springframework.data.domain.Page;
