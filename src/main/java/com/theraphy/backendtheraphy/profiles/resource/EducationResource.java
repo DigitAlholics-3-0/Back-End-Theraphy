@@ -9,6 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 public class EducationResource {
     private Long id;
-    private String physiotherapist_name;
+    private String physiotherapistName;
     private String specialization;
 }
