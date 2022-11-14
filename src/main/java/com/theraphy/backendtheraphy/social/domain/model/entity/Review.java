@@ -1,8 +1,8 @@
 package com.theraphy.backendtheraphy.social.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
-import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.profile.domain.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.entity.Physiotherapist;
 import lombok.*;
 
 import javax.persistence.*;
