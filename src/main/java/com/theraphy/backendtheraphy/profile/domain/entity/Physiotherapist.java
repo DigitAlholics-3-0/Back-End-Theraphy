@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.security.domain.model.entity;
+package com.theraphy.backendtheraphy.profile.domain.entity;
 
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
