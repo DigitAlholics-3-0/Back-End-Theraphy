@@ -42,14 +42,14 @@ public class MedicalHistory {
     private Double bodyMass;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "patient_allergies",
-            joinColumns = @JoinColumn(name = "patient_id"),
+    @JoinTable(name = "medical_history_allergies",
+            joinColumns = @JoinColumn(name = "medical_history_id"),
             inverseJoinColumns = @JoinColumn(name = "allergy_id"))
     private Set<Allergy> allergies = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "patient_pathological_histories",
-            joinColumns = @JoinColumn(name = "patient_id"),
+    @JoinTable(name = "medical_history_pathological",
+            joinColumns = @JoinColumn(name = "medical_history_id"),
             inverseJoinColumns = @JoinColumn(name = "pathological_history_id"))
     private Set<PathologicalHistory> pathologicalHistories = new HashSet<>();
 
