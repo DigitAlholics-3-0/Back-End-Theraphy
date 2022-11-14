@@ -23,16 +23,21 @@ public class MedicalHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+
     @NotNull
     @NotBlank
     @Size(max = 200)
     @Column(name = "patient_name")
     private String patientName;
 
+    @NotNull
     private Double height;
 
+    @NotNull
     private Double weight;
 
+    @NotNull
     @Column(name = "body_mass")
     private Double bodyMass;
 
