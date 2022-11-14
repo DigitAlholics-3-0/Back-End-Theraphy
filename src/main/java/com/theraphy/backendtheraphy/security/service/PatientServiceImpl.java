@@ -1,6 +1,7 @@
 package com.theraphy.backendtheraphy.security.service;
 
 import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.security.domain.model.entity.User;
 import com.theraphy.backendtheraphy.security.domain.persistence.PatientRepository;
 import com.theraphy.backendtheraphy.security.domain.service.PatientService;
@@ -88,5 +89,15 @@ public class PatientServiceImpl implements PatientService {
         }).orElseThrow(()-> new ResourceNotFoundException(ENTITY,patientId));
     }
 
+    @Override
+    public Patient addReviewToPatient(Long patientId, String physiotherapist,
+                                      String reviewer,
+                                      Integer stars,
+                                      String description,
+                                      Physiotherapist doctor) {
+        return patientRepository.findById(patientId).map(patient -> {
+            return patientRepository.save(patient.addReview(physiotherapist,reviewer,stars,description,doctor));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, patientId));
+    }
 
 }

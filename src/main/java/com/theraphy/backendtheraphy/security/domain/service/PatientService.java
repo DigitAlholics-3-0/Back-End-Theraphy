@@ -1,7 +1,9 @@
 package com.theraphy.backendtheraphy.security.domain.service;
 
 import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.security.domain.model.entity.User;
+import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -15,4 +17,12 @@ public interface PatientService {
     Patient create(Patient patient);
     Patient update(Long patientId, Patient request);
     ResponseEntity<?> delete(Long patientId);
+
+    //realtions
+    Patient addReviewToPatient(Long reviewId,
+                              String physiotherapist,
+                              String reviewer,
+                              Integer stars,
+                              String description,
+                              Physiotherapist doctor);
 }
