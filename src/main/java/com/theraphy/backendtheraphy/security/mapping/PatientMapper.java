@@ -1,6 +1,6 @@
 package com.theraphy.backendtheraphy.security.mapping;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.entity.Patient;
 import com.theraphy.backendtheraphy.security.resource.CreatePatientResource;
 import com.theraphy.backendtheraphy.security.resource.PatientResource;
 import com.theraphy.backendtheraphy.security.resource.UpdatePatientResource;
