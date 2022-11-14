@@ -8,4 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class MappingConfiguration {
     @Bean
     public EducationMapper educationMapper() { return new EducationMapper();}
+
+    @Bean
+    public UniversityMapper universityMapper() { return new UniversityMapper();}
 }
