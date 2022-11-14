@@ -1,6 +1,6 @@
 package com.theraphy.backendtheraphy.security.service;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.profile.domain.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.security.domain.persistence.PhysiotherapistRepository;
 import com.theraphy.backendtheraphy.security.domain.service.PhysiotherapistService;
 import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
