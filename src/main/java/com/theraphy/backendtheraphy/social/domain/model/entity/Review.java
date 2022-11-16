@@ -1,8 +1,8 @@
 package com.theraphy.backendtheraphy.social.domain.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.theraphy.backendtheraphy.profile.domain.entity.Patient;
-import com.theraphy.backendtheraphy.profile.domain.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.security.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,41 +17,25 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @Entity
 @Table(name = "reviews")
-public class Review {
+public class Review extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // physioId y patientId
-    @NotBlank
-    @NotNull
-    @Size(max = 200)
-    private String physiotherapist;
+
+    private Long stars;
 
     @NotBlank
     @NotNull
-    @Size(max = 200)
-    private String reviewer;
-
-    @NotNull
-    private Integer stars;
-
-    @NotBlank
-    @NotNull
-    @Size(max = 200)
+    @Size(max = 500)
     private String description;
-
-
-    //relations
-
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "physiotherapist_id", nullable = false)
-    @JsonIgnore
-    private Physiotherapist doctor;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
-    @JsonIgnore
     private Patient patient;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "physiotherapist_id", nullable = false)
+    private Physiotherapist physiotherapist;
 
 }
