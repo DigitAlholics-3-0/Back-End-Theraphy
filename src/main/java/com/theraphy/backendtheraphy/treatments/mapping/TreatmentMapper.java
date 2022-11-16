@@ -26,6 +26,7 @@ public class TreatmentMapper implements Serializable {
     }
 
     public Treatment toModel(UpdateTreatmentResource resource) {return mapper.map(resource, Treatment.class);}
+
     public Page<TreatmentResource> modelListPage(List<Treatment> modelList, Pageable pageable) {
         return new PageImpl<>(mapper.mapList(modelList, TreatmentResource.class), pageable, modelList.size());
     }
