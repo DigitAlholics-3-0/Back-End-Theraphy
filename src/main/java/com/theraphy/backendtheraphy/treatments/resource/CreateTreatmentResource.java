@@ -1,5 +1,6 @@
 package com.theraphy.backendtheraphy.treatments.resource;
 
+import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
@@ -20,13 +21,16 @@ public class CreateTreatmentResource {
 
     @NotBlank
     @NotNull
-    @Size(max = 200)
+    @Size(max = 500)
     private String description;
 
     @NotNull
     @NotBlank
-    @Size(max = 60)
+    @Size(max = 300)
     private String photoUrl;
 
     private int sessionsQuantity;
+
+    private PhysiotherapistResource physiotherapist;
+
 }
