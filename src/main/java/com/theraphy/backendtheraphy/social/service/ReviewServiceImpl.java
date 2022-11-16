@@ -1,8 +1,7 @@
 package com.theraphy.backendtheraphy.social.service;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
-import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.social.domain.persistence.ReviewRepository;
 import com.theraphy.backendtheraphy.social.domain.service.ReviewService;
@@ -19,7 +18,7 @@ import java.util.Set;
 @Service
 public class ReviewServiceImpl implements ReviewService {
 
-    private static final String ENTITY = "Review";
+    private static final String ENTITY = "Reviews";
 
     private final ReviewRepository reviewRepository;
 
@@ -30,9 +29,10 @@ public class ReviewServiceImpl implements ReviewService {
         this.validator = validator;
     }
 
+
     @Override
     public List<Review> getAll() {
-        return this.reviewRepository.findAll();
+        return reviewRepository.findAll();
     }
 
     @Override
@@ -43,7 +43,8 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review getById(Long reviewId) {
         return reviewRepository.findById(reviewId)
-                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, reviewId));    }
+                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, reviewId));
+    }
 
     @Override
     public Review create(Review review) {
@@ -55,14 +56,6 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewRepository.save(review);
     }
 
-   /* @Override
-    public Review getByDataAndPatientId(String physiotherapist, String reviewer, Integer stars, String description, Physiotherapist doctor, Long patientId) {
-        return reviewRepository.findByPhysiotherapist(physiotherapist, patientId)
-                .orElseThrow(() -> new ResourceNotFoundException("No Criterion with this name found for Skill"));
-    }
-*/
-
-
     @Override
     public Review update(Long reviewId, Review request) {
         Set<ConstraintViolation<Review>> violations = validator.validate(request);
@@ -72,19 +65,25 @@ public class ReviewServiceImpl implements ReviewService {
 
         return reviewRepository.findById(reviewId).map(review ->
                         reviewRepository.save(
-                                review.withReviewer(request.getReviewer())
-                                        .withStars(request.getStars())
-                                        .withPhysiotherapist(request.getPhysiotherapist())
-                                        .withDescription(request.getDescription())
-                                        .withDoctor(request.getDoctor())
-                                        .withPatient(request.getPatient())))
-                        .orElseThrow(() -> new ResourceNotFoundException(ENTITY, reviewId));
+                                review.withDescription(request.getDescription())
+                                                .withStars(request.getStars())))
+                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, reviewId));
     }
 
     @Override
     public ResponseEntity<?> delete(Long reviewId) {
-        return reviewRepository.findById(reviewId).map( treatment -> {
-            reviewRepository.delete(treatment);
+        return reviewRepository.findById(reviewId).map( appointment -> {
+            reviewRepository.delete(appointment);
             return ResponseEntity.ok().build();
         }).orElseThrow(()-> new ResourceNotFoundException(ENTITY,reviewId));    }
+
+    @Override
+    public Review getByStarsAndPatientId(Long stars, Long patientId) {
+        return reviewRepository.findByStarsAndPatientId(stars,patientId).orElseThrow(()-> new ResourceNotFoundException("No Reviews with this stars quantity found for Patient"));
+    }
+
+    @Override
+    public Review getByStarsAndPhysiotherapistId(Long stars, Long physiotherapistId) {
+        return reviewRepository.findByStarsAndPhysiotherapistId(stars, physiotherapistId).orElseThrow(()-> new ResourceNotFoundException("No Reviews with this stars quantity found for Physiotherapist"));
+    }
 }
