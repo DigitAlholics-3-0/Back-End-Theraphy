@@ -1,7 +1,6 @@
 package com.theraphy.backendtheraphy.social.api.rest;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
-import com.theraphy.backendtheraphy.security.domain.service.PatientService;
+import com.theraphy.backendtheraphy.profile.domain.service.PatientService;
 import com.theraphy.backendtheraphy.social.domain.service.ReviewService;
 import com.theraphy.backendtheraphy.social.mapping.ReviewMapper;
 import com.theraphy.backendtheraphy.social.resource.CreateReviewResource;
@@ -13,9 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/api/v1/patients/{patientId}/reviews", produces = "application/json")
-@Tag(name = "Patients", description = "Create, read, update and delete patients")
+@Tag(name = "Patient Reviews", description = "Create, read, update and delete reviews")
 public class PatientReviewController {
-
     private final PatientService patientService;
 
     private final ReviewService reviewService;
@@ -31,18 +29,17 @@ public class PatientReviewController {
 
     @GetMapping
     public Page<ReviewResource> getAllReviewsByPatientId(@PathVariable Long patientId,
-                                                       Pageable pageable) {
+                                                              Pageable pageable) {
         return mapper.modelListPage(patientService.getById(patientId)
                 .getReviews().stream().toList(), pageable);
     }
 
-    /*@PostMapping
+    @PostMapping
     public ReviewResource createReview(@PathVariable Long patientId,
-                                             @RequestBody CreateReviewResource resource) {
+                                                 @RequestBody CreateReviewResource resource) {
 
-        patientService.addReviewToPatient(patientId, resource.getPhysiotherapist(), resource.getReviewer(),
-                resource.getStars(), resource.getDescription(), new Physiotherapist());
-        return mapper.toResource(reviewService.
-                .getByNameAndSkillId(resource.getName(), skillId));
-    }*/
+        patientService.addReviewToPatient(patientId, resource.getDescription(), resource.getStars());
+        return mapper.toResource(reviewService
+                .getByStarsAndPatientId(resource.getStars(), patientId));
+    }
 }
