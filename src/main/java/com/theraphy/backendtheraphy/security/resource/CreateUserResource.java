@@ -13,11 +13,11 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateUserResource {
-
+/*
     @NotBlank
     @NotNull
     @Size(max = 50)
-    private String username;
+    private String username;*/
 
     @NotNull
     @NotBlank
@@ -28,4 +28,9 @@ public class CreateUserResource {
     @NotBlank
     @Size(max = 120)
     private String password;
+
+    @NotNull
+    @NotBlank
+    @Size(max = 20)
+    private String type;
 }

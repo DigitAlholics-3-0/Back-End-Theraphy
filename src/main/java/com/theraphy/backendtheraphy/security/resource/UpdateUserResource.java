@@ -12,10 +12,11 @@ import javax.validation.constraints.Size;
 @Setter
 public class UpdateUserResource {
 
+    /*
     @NotBlank
     @NotNull
     @Size(max = 50)
-    private String username;
+    private String username;*/
 
     @NotNull
     @NotBlank
@@ -26,5 +27,10 @@ public class UpdateUserResource {
     @NotBlank
     @Size(max = 120)
     private String password;
+
+    @NotNull
+    @NotBlank
+    @Size(max = 20)
+    private String type;
 
 }

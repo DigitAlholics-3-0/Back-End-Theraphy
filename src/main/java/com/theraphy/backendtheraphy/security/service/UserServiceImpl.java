@@ -3,8 +3,8 @@ package com.theraphy.backendtheraphy.security.service;
 import com.theraphy.backendtheraphy.security.domain.model.entity.User;
 import com.theraphy.backendtheraphy.security.domain.persistence.UserRepository;
 import com.theraphy.backendtheraphy.security.domain.service.UserService;
-import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -51,9 +51,9 @@ public class UserServiceImpl implements UserService {
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
-
+/*
         if(userRepository.findByUsername(user.getUsername()).isPresent())
-            throw new ResourceValidationException(ENTITY, "A user with the same username exists.");
+            throw new ResourceValidationException(ENTITY, "A user with the same username exists.");*/
 
         if(userRepository.findByEmail(user.getEmail()).isPresent())
             throw new ResourceValidationException(ENTITY, "A user with the same email exists.");
@@ -70,9 +70,9 @@ public class UserServiceImpl implements UserService {
 
         return userRepository.findById(userId).map(student ->
                         userRepository.save(
-                                student.withUsername(request.getUsername())
-                                        .withEmail(request.getEmail())
-                                        .withPassword(request.getPassword())))
+                                student.withEmail(request.getEmail())
+                                        .withPassword(request.getPassword())
+                                        .withType(request.getType())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, userId));
     }
 

@@ -1,5 +1,7 @@
 package com.theraphy.backendtheraphy.security.mapping;
 
+import com.theraphy.backendtheraphy.profile.mapping.PatientMapper;
+import com.theraphy.backendtheraphy.profile.mapping.PhysiotherapistMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
