@@ -1,7 +1,6 @@
 package com.theraphy.backendtheraphy.security.domain.service;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
-import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.profile.domain.entity.Physiotherapist;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
