@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.social.resource;
 
-import com.theraphy.backendtheraphy.security.resource.PatientResource;
-import com.theraphy.backendtheraphy.security.resource.PhysiotherapistResource;
+import com.theraphy.backendtheraphy.profile.resource.PatientResource;
+import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import lombok.*;
 
 @Getter
@@ -10,20 +10,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReviewResource {
-
     private Long id;
-
-    private String physiotherapist;
-
-    private String reviewer;
-
-    private Integer stars;
-
     private String description;
-
-    //relations
-
-    private PhysiotherapistResource doctor;
-
+    private Long stars;
     private PatientResource patient;
+    private PhysiotherapistResource physiotherapist;
 }
