@@ -3,8 +3,8 @@ package com.theraphy.backendtheraphy.appointments.service;
 import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
 import com.theraphy.backendtheraphy.appointments.domain.persistence.AppointmentRepository;
 import com.theraphy.backendtheraphy.appointments.domain.service.AppointmentService;
-import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -82,5 +82,15 @@ public class AppointmentServiceImpl implements AppointmentService {
             appointmentRepository.delete(appointment);
             return ResponseEntity.ok().build();
         }).orElseThrow(()-> new ResourceNotFoundException(ENTITY,appointmentId));
+    }
+
+    @Override
+    public Appointment getByTopicAndPatientId(String topic, Long patientId) {
+        return appointmentRepository.findByTopicAndPatientId(topic,patientId).orElseThrow(()-> new ResourceNotFoundException("No Appointment with this name found for Patient"));
+    }
+
+    @Override
+    public Appointment getByTopicAndPhysiotherapistId(String topic, Long physiotherapistId) {
+        return appointmentRepository.findByTopicAndPhysiotherapistId(topic, physiotherapistId).orElseThrow(()-> new ResourceNotFoundException("No Appointment with this name found for Physiotherapist"));
     }
 }
