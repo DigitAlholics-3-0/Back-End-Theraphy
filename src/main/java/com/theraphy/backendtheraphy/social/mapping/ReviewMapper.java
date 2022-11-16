@@ -1,14 +1,10 @@
 package com.theraphy.backendtheraphy.social.mapping;
 
-import com.theraphy.backendtheraphy.shared.mapping.EnhancedModelMapper;
+import com.theraphy.backendtheraphy.security.shared.mapping.EnhancedModelMapper;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.social.resource.CreateReviewResource;
 import com.theraphy.backendtheraphy.social.resource.ReviewResource;
 import com.theraphy.backendtheraphy.social.resource.UpdateReviewResource;
-import com.theraphy.backendtheraphy.treatments.domain.model.entity.Treatment;
-import com.theraphy.backendtheraphy.treatments.resource.CreateTreatmentResource;
-import com.theraphy.backendtheraphy.treatments.resource.TreatmentResource;
-import com.theraphy.backendtheraphy.treatments.resource.UpdateTreatmentResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -17,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import java.io.Serializable;
 import java.util.List;
 
-public class ReviewMapper  implements Serializable {
+public class ReviewMapper implements Serializable {
     @Autowired
     EnhancedModelMapper mapper;
 
