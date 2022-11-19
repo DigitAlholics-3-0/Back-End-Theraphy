@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.social.service;
 
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.social.domain.persistence.ReviewRepository;
 import com.theraphy.backendtheraphy.social.domain.service.ReviewService;
@@ -66,7 +66,7 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewRepository.findById(reviewId).map(review ->
                         reviewRepository.save(
                                 review.withDescription(request.getDescription())
-                                                .withStars(request.getStars())))
+                                        .withStars(request.getStars())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, reviewId));
     }
 
@@ -86,4 +86,6 @@ public class ReviewServiceImpl implements ReviewService {
     public Review getByStarsAndPhysiotherapistId(Long stars, Long physiotherapistId) {
         return reviewRepository.findByStarsAndPhysiotherapistId(stars, physiotherapistId).orElseThrow(()-> new ResourceNotFoundException("No Reviews with this stars quantity found for Physiotherapist"));
     }
+
+
 }
