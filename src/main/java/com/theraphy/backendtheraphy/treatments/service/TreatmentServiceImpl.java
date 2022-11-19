@@ -95,4 +95,4 @@ public class TreatmentServiceImpl implements TreatmentService {
         return treatmentRepository.findById(treatmentId).map(patient -> {
             return treatmentRepository.save(patient.addTreatmentPatient(registrationDate, progress));
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,treatmentId));    }
-    }
+}
