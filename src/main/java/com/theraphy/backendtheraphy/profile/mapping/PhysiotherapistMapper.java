@@ -4,7 +4,7 @@ import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.profile.resource.CreatePhysiotherapistResource;
 import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import com.theraphy.backendtheraphy.profile.resource.UpdatePhysiotherapistResource;
-import com.theraphy.backendtheraphy.security.shared.mapping.EnhancedModelMapper;
+import com.theraphy.backendtheraphy.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
