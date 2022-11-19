@@ -12,6 +12,8 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 public class UpdatePhysiotherapistResource {
+
+
     @NotNull
     @NotBlank
     @Size(max = 60)
@@ -36,6 +38,8 @@ public class UpdatePhysiotherapistResource {
 
     @Min(18)
     private int age;
+
+    private Long id;
 
     @NotNull
     @NotBlank
