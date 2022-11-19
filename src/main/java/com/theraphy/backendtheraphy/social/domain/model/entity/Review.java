@@ -2,7 +2,7 @@ package com.theraphy.backendtheraphy.social.domain.model.entity;
 
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
-import com.theraphy.backendtheraphy.security.shared.domain.model.AuditModel;
+import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -37,5 +37,7 @@ public class Review extends AuditModel {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "physiotherapist_id", nullable = false)
     private Physiotherapist physiotherapist;
+
+
 
 }
