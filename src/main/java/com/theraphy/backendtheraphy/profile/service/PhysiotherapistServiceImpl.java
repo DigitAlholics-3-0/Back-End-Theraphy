@@ -3,8 +3,8 @@ package com.theraphy.backendtheraphy.profile.service;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.profile.domain.persistence.PhysiotherapistRepository;
 import com.theraphy.backendtheraphy.profile.domain.service.PhysiotherapistService;
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +45,13 @@ public class PhysiotherapistServiceImpl implements PhysiotherapistService {
     }
 
     @Override
+    public Physiotherapist getByUserId(Long userId) {
+        return physiotherapistRepository.findByUserId(userId)
+                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, userId));
+    }
+
+
+    @Override
     public Physiotherapist create(Physiotherapist physiotherapist) {
         Set<ConstraintViolation<Physiotherapist>> violations = validator.validate(physiotherapist);
 
@@ -82,7 +89,7 @@ public class PhysiotherapistServiceImpl implements PhysiotherapistService {
                                         withSpecialization(request.getSpecialization()).
                                         withEmail(request.getEmail()).
                                         withConsultationsQuantity(request.getConsultationsQuantity())
-                                ))
+                        ))
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY,physiotherapistId));
     }
 
