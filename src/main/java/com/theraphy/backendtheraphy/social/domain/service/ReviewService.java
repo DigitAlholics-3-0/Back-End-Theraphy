@@ -1,5 +1,6 @@
 package com.theraphy.backendtheraphy.social.domain.service;
 
+import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,9 +12,12 @@ public interface ReviewService {
     List<Review> getAll();
     Page<Review> getAll(Pageable pageable);
     Review getById(Long reviewId);
+
+
     Review create(Review review);
     Review update(Long reviewId, Review request);
     ResponseEntity<?> delete(Long reviewId);
     Review getByStarsAndPatientId(Long stars, Long patientId);
     Review getByStarsAndPhysiotherapistId(Long stars, Long physiotherapistId);
+
 }
