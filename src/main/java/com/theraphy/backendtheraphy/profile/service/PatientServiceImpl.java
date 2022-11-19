@@ -1,10 +1,11 @@
 package com.theraphy.backendtheraphy.profile.service;
 
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.profile.domain.persistence.PatientRepository;
 import com.theraphy.backendtheraphy.profile.domain.service.PatientService;
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -47,6 +48,13 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public Patient getByUserId(Long userId) {
+        return patientRepository.findByUserId(userId)
+                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, userId));
+    }
+
+
+    @Override
     public Patient create(Patient patient) {
         Set<ConstraintViolation<Patient>> violations = validator.validate(patient);
 
@@ -79,7 +87,7 @@ public class PatientServiceImpl implements PatientService {
                                         withBirthdayDate(request.getBirthdayDate()).
                                         withEmail(request.getEmail()).
                                         withAppointmentQuantity(request.getAppointmentQuantity())
-                                ))
+                        ))
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY,patientId));
     }
 
