@@ -17,7 +17,8 @@ public class PhysiotherapistResource {
     private String location;
     private String photoUrl;
     private String birthdayDate;
-    private String consultationsQuantity;
+    private Long consultationsQuantity;
     private String specialization;
     private String email;
+    private Long userId;
 }
