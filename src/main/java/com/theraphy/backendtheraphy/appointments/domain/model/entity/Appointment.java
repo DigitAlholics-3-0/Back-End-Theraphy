@@ -1,5 +1,8 @@
 package com.theraphy.backendtheraphy.appointments.domain.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import lombok.*;
 
@@ -24,6 +27,7 @@ public class Appointment extends AuditModel {
     @NotBlank
     @Size(max = 20)
     @Column(name = "scheduled_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private String scheduledDate;
 
     @NotNull
@@ -41,4 +45,12 @@ public class Appointment extends AuditModel {
     @NotBlank
     @Size(max = 10)
     private String done;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "physiotherapist_id", nullable = false)
+    private Physiotherapist physiotherapist;
 }
