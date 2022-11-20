@@ -15,7 +15,7 @@ import java.util.Date;
 public class TreatmentPatientResource {
 
     private Long id;
-    private Treatment treatment;
+    private TreatmentResource treatment;
     private PatientResource patient;
     private Date registrationDate;
     private Double progress;

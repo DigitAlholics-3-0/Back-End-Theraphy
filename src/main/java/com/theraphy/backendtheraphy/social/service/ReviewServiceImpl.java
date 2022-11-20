@@ -66,7 +66,7 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewRepository.findById(reviewId).map(review ->
                         reviewRepository.save(
                                 review.withDescription(request.getDescription())
-                                        .withStars(request.getStars())))
+                                                .withStars(request.getStars())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, reviewId));
     }
 

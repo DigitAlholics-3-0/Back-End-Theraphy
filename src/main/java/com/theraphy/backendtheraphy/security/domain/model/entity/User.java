@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.security.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.theraphy.backendtheraphy.security.shared.domain.model.AuditModel;
+import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;

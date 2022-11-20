@@ -4,7 +4,7 @@ import com.theraphy.backendtheraphy.security.domain.model.entity.User;
 import com.theraphy.backendtheraphy.security.resource.CreateUserResource;
 import com.theraphy.backendtheraphy.security.resource.UpdateUserResource;
 import com.theraphy.backendtheraphy.security.resource.UserResource;
-import com.theraphy.backendtheraphy.security.shared.mapping.EnhancedModelMapper;
+import com.theraphy.backendtheraphy.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

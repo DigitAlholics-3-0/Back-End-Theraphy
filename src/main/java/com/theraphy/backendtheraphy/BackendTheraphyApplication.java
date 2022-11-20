@@ -10,6 +10,7 @@ public class BackendTheraphyApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BackendTheraphyApplication.class, args);
+
     }
 
 }

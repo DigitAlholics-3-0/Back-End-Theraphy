@@ -16,10 +16,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class UpdateTreatmentPatientResource {
 
-    @NotNull
-    @NotBlank
-    @Size(max = 60)
-    private Treatment treatment;
+
+    private TreatmentResource treatment;
 
     private PatientResource patient;
 

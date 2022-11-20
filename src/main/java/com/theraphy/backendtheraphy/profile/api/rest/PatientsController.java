@@ -35,6 +35,11 @@ public class PatientsController {
         return mapper.toResource(patientService.getById(patientId));
     }
 
+    @GetMapping("userId={value}")
+    public PatientResource getPatientByUserId(@PathVariable Long value) {
+        return mapper.toResource(patientService.getByUserId(value));
+    }
+
     @PostMapping
     public ResponseEntity<PatientResource> createPatient(@RequestBody CreatePatientResource resource) {
         return new ResponseEntity<>(mapper.toResource(patientService.create(mapper.toModel(resource))), HttpStatus.CREATED);

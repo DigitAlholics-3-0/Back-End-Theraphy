@@ -89,7 +89,7 @@ public class PhysiotherapistServiceImpl implements PhysiotherapistService {
                                         withSpecialization(request.getSpecialization()).
                                         withEmail(request.getEmail()).
                                         withConsultationsQuantity(request.getConsultationsQuantity())
-                        ))
+                                ))
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY,physiotherapistId));
     }
 

@@ -1,6 +1,6 @@
 package com.theraphy.backendtheraphy.social.mapping;
 
-import com.theraphy.backendtheraphy.security.shared.mapping.EnhancedModelMapper;
+import com.theraphy.backendtheraphy.shared.mapping.EnhancedModelMapper;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.social.resource.CreateReviewResource;
 import com.theraphy.backendtheraphy.social.resource.ReviewResource;

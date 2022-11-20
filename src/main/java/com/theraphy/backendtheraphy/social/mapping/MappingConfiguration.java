@@ -1,5 +1,6 @@
 package com.theraphy.backendtheraphy.social.mapping;
 
+import com.theraphy.backendtheraphy.appointments.mapping.AppointmentMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

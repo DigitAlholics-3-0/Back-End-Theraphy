@@ -87,7 +87,7 @@ public class PatientServiceImpl implements PatientService {
                                         withBirthdayDate(request.getBirthdayDate()).
                                         withEmail(request.getEmail()).
                                         withAppointmentQuantity(request.getAppointmentQuantity())
-                        ))
+                                ))
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY,patientId));
     }
 

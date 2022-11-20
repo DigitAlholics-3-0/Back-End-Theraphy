@@ -1,7 +1,6 @@
 package com.theraphy.backendtheraphy.appointments.resource;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

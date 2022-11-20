@@ -35,6 +35,9 @@ public class ReviewController {
         return mapper.toResource(reviewService.getById(reviewId));
     }
 
+
+
+
     @PostMapping
     public ResponseEntity<ReviewResource> createReview(@RequestBody CreateReviewResource resource) {
         return new ResponseEntity<>(mapper.toResource(reviewService.create(mapper.toModel(resource))), HttpStatus.CREATED);

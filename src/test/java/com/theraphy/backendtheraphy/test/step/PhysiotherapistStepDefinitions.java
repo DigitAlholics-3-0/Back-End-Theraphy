@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.test.step;
 
-import com.theraphy.backendtheraphy.security.resource.CreatePhysiotherapistResource;
-import com.theraphy.backendtheraphy.security.resource.PhysiotherapistResource;
+import com.theraphy.backendtheraphy.profile.resource.CreatePhysiotherapistResource;
+import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.en.And;
@@ -39,7 +39,6 @@ public class PhysiotherapistStepDefinitions {
     public void aPostRequestIsSentWithValues(int userId, String firstName, String lastName, String address, int age, String photoUrl, String birthdate) {
         CreatePhysiotherapistResource resource = new CreatePhysiotherapistResource()
                 .withFirstName(firstName)
-                .withLastName(lastName)
                 .withLocation(address)
                 .withAge(age)
                 .withPhotoUrl(photoUrl)
@@ -54,7 +53,6 @@ public class PhysiotherapistStepDefinitions {
     public void anPhysiotherapistResourceIsIncludedInResponseBodyWithValues(int userId, String firstName, String lastName, String location, int age, String photoUrl, String birthdate) {
         PhysiotherapistResource expectedResource = new PhysiotherapistResource()
                 .withFirstName(firstName)
-                .withLastName(lastName)
                 .withLocation(location)
                 .withAge(age)
                 .withPhotoUrl(photoUrl)
@@ -76,7 +74,6 @@ public class PhysiotherapistStepDefinitions {
     public void anPhysiotherapistResourceWithValuesIsAlreadyStored(int userId, String firstName, String lastName, String location, int age, String photoUrl, String birthdate) {
         CreatePhysiotherapistResource resource = new CreatePhysiotherapistResource()
                 .withFirstName(firstName)
-                .withLastName(lastName)
                 .withLocation(location)
                 .withAge(age)
                 .withPhotoUrl(photoUrl)

@@ -1,6 +1,9 @@
 package com.theraphy.backendtheraphy.social.api.rest;
 
+import com.theraphy.backendtheraphy.appointments.resource.AppointmentResource;
+import com.theraphy.backendtheraphy.appointments.resource.CreateAppointmentResource;
 import com.theraphy.backendtheraphy.profile.domain.service.PatientService;
+import com.theraphy.backendtheraphy.social.domain.persistence.ReviewRepository;
 import com.theraphy.backendtheraphy.social.domain.service.ReviewService;
 import com.theraphy.backendtheraphy.social.mapping.ReviewMapper;
 import com.theraphy.backendtheraphy.social.resource.CreateReviewResource;

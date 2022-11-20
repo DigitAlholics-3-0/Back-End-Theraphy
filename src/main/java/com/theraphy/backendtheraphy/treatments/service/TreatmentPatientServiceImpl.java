@@ -1,7 +1,9 @@
 package com.theraphy.backendtheraphy.treatments.service;
 
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
 import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.treatments.domain.model.entity.Treatment;
 import com.theraphy.backendtheraphy.treatments.domain.model.entity.TreatmentPatient;
 import com.theraphy.backendtheraphy.treatments.domain.persistence.TreatmentPatientRepository;
 import com.theraphy.backendtheraphy.treatments.domain.service.TreatmentPatientService;
@@ -45,6 +47,9 @@ public class TreatmentPatientServiceImpl implements TreatmentPatientService {
         return treatmentPatientRepository.findById(treatmentPatientId)
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY, treatmentPatientId));
     }
+
+
+
 
     @Override
     public TreatmentPatient create(TreatmentPatient treatmentPatient) {

@@ -2,8 +2,8 @@ package com.theraphy.backendtheraphy.profile.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
-import com.theraphy.backendtheraphy.security.shared.domain.model.AuditModel;
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
+import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.treatments.domain.model.entity.TreatmentPatient;
 import lombok.*;
