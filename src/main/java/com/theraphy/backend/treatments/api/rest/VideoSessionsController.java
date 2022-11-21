@@ -20,7 +20,6 @@ public class VideoSessionsController {
 
     private final VideoSessionsMapper mapper;
 
-
     public VideoSessionsController(VideoSessionService videoSessionService, VideoSessionsMapper mapper) {
         this.videoSessionService = videoSessionService;
         this.mapper = mapper;
