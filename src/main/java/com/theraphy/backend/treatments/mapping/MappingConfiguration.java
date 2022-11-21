@@ -10,4 +10,6 @@ public class MappingConfiguration {
 
     @Bean
     public TreatmentPatientMapper treatmentPatientMapper() { return new TreatmentPatientMapper();}
+    @Bean
+    public VideoSessionsMapper videoSessionsMapper() { return new VideoSessionsMapper();}
 }
