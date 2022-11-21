@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface VideoSessionRepository extends JpaRepository<VideoSession, Long> {
 
     VideoSession findByLink(String link);
-
 }
