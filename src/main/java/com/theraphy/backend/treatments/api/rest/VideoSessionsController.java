@@ -37,10 +37,7 @@ public class VideoSessionsController {
     @PostMapping
     public ResponseEntity<VideoSessionResource> createVideoSession(
             @RequestBody CreateVideoSessionResource resource) {
-        return new ResponseEntity<>(mapper.
-                toResource(videoSessionService.
-                        create(mapper.
-                                toModel(resource))), HttpStatus.CREATED);
+        return new ResponseEntity<>(mapper.toResource(videoSessionService.create(mapper.toModel(resource))), HttpStatus.CREATED);
     }
     @DeleteMapping("{videoSessionId}")
     public ResponseEntity<?> deleteVideoSession(@PathVariable Long videoSessionId) {
