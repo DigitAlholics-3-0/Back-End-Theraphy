@@ -13,7 +13,7 @@ public class UpdateVideoSessionResource {
 
     @NotNull
     @NotBlank
-    @Size(max = 120)
+    @Size(max = 240)
     private String link;
 
 }
